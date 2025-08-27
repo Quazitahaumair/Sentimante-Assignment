@@ -12,7 +12,7 @@ export default function Answers() {
   { question: "10: Someone ate your fries without asking 🍟", answer: "Angry" },
   { question: "11: It’s raining outside and you are just watching 🌧️", answer: "Neutral" },
   { question: "12: Your best friend throws you a birthday party 🎉", answer: "Happy" },
-  { question: "13: Your phone battery died during a game 🎮🔋", answer: "Sad" }
+  { question: "13: Your phone battery died during a game 🎮🔋", answer: "Sad" },
 ];
 
 

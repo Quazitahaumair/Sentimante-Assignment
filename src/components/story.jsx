@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Story() {
   return (
     <div className="flex flex-col items-center justify-center px-6 py-10 max-w-3xl mx-auto bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl shadow-lg">
-      <h2 className="text-3xl font-bold text-purple-700 mb-6 text-center">Story Time 📚✨</h2>
+      <h2 className="story">Story Time 📚✨</h2>
 
       <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
         <p>
@@ -39,6 +39,7 @@ export default function Story() {
 
         <p className="italic text-gray-600 text-center">
           (Hint: Look at the emojis 😄😭😐 to guess the mood!)
+          
         </p>
 
         <div className="text-center mt-6">
