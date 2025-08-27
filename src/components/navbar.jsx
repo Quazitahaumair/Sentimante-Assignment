@@ -12,7 +12,7 @@ export default function Navbar() {
     fontSize: "18px",
     transition: "all 0.3s ease",
     display: "block",
-    padding: "8px 2px",
+    padding: "10px 0",
   });
 
   const links = [
