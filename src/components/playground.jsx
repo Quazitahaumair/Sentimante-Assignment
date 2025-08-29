@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const words = [
   "React", "JavaScript", "Fun", "Code", "Playground",
-  "Speed", "Challenge", "Typing", "Learn", "Game"
+  "Speed", "Challenge", "Typing", "Learn", "Game", "Taha", "Python", 
+  "Vizuara", "Assignment",
 ];
 
 export default function Playground() {
@@ -13,6 +15,8 @@ export default function Playground() {
   const [gameOver, setGameOver] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [gameStarted, setGameStarted] = useState(false);
+
+  const navigate = useNavigate();
 
   const pickWord = () => {
     const random = words[Math.floor(Math.random() * words.length)];
@@ -52,20 +56,20 @@ export default function Playground() {
     }
   };
 
-  // 🔑 Handle Enter key
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSubmit();
     }
   };
 
+  // Before game start screen
   if (!gameStarted) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 p-6">
         <h2 className="text-3xl font-bold mb-4">Typing Speed Challenge ⌨️</h2>
         <p className="text-center mb-6 max-w-md">
-          Type the word shown as fast as you can! Click start to begin.
-          <p>Note: You have only 30 seconds</p>
+          Type the word shown as fast as you can! <br />
+          <span className="font-semibold">Note: You have only 30 seconds ⏱️</span>
         </p>
         <button
           onClick={startGame}
@@ -77,27 +81,37 @@ export default function Playground() {
     );
   }
 
+  // Game over screen
   if (gameOver) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 p-6">
         <h2 className="text-3xl font-bold mb-4">🎉 Time's Up!</h2>
         <p className="text-xl mb-6">Your Score: {score}</p>
-        <button
-          onClick={startGame}
-          className="px-6 py-3 bg-green-500 text-white rounded-xl shadow-lg hover:scale-105 transition"
-        >
-          Restart Game
-        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={startGame}
+            className="px-6 py-3 bg-green-500 text-white rounded-xl shadow-lg hover:scale-105 transition"
+          >
+            🔄 Restart Game
+          </button>
+          <button
+            onClick={() => navigate("/quiz")}
+            className="px-6 py-3 bg-blue-500 text-white rounded-xl shadow-lg hover:scale-105 transition"
+          >
+            📝 Go to Quiz
+          </button>
+        </div>
       </div>
     );
   }
 
+  // Game running screen
   return (
     <div className="flex flex-col items-center min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 p-6 pt-24">
       <h2 className="text-2xl font-bold mb-2">Typing Speed Challenge ⌨️</h2>
       <p className="text-md text-gray-700 mb-6 text-center max-w-md">
-        Type the word shown below as fast as you can!
-         Press Enter or Submit after typing.
+        Type the word shown below as fast as you can! <br />
+        Press <span className="font-semibold">Enter</span> or click Submit.
       </p>
 
       <p className="text-5xl font-bold mb-6 text-purple-700">{currentWord}</p>
@@ -106,7 +120,7 @@ export default function Playground() {
         type="text"
         value={userInput}
         onChange={(e) => setUserInput(e.target.value)}
-        onKeyDown={handleKeyDown} // 👈 Added Enter key handler
+        onKeyDown={handleKeyDown}
         placeholder="Type the word here..."
         className="px-4 py-2 rounded-xl shadow-md w-72 text-center mb-4 focus:outline-none focus:ring-2 focus:ring-purple-400"
       />

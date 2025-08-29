@@ -1,10 +1,12 @@
   /* Reset & Base */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
+* {
+  margin: 0; /* reset */
+  padding: 0; /* reset */
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px; /* Increase font size globally */
+}
+
 
   body {
     background: linear-gradient(135deg, #4f46e5, #9333ea);
@@ -14,6 +16,8 @@
     justify-content: center;
     align-items: center;
     padding: 15px; /* spacing for small screens */
+    padding-top: 80px; /* adjust based on navbar height */
+
   }
 
   .container {
@@ -23,7 +27,7 @@
     padding: 20px;
     width: 90%;
     max-width: 400px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     transition: transform 0.2s ease;
   }
 
@@ -39,6 +43,11 @@
     color: #f9fafb;
   }
 
+  
+h2 {
+  font-size: 2.2rem;
+}
+
   input[type="text"] {
     width: 100%;
     padding: 12px 15px;
@@ -50,18 +59,20 @@
   }
 
   /* Button */
-  button {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(90deg, #3b82f6, #9333ea);
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
+button {
+  width: 100%;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #3b82f6, #9333ea);
+  border: none;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: whitesmoke;
+  cursor: pointer;
+  transition: 1ms ease;
+  margin-bottom: 8px; /* adds space below each button */
+}
+
 
   button:hover {
     background: linear-gradient(90deg, #2563eb, #7e22ce);
@@ -85,9 +96,8 @@
     box-shadow: 10px 8px 10px rgba(0,0,0,0.1);
   }
   
-.story{
-  margin-top: 200px;
-}
+
+
 
   /* Navbar base */
 .navbar {
@@ -165,5 +175,21 @@
   }
   .hamburger {
     display: block; /* show hamburger */
+  }
+}
+
+.story {
+  margin-top: 0px; /* default for desktop */
+}
+
+@media (max-width: 768px) {
+  .story {
+    margin-top: 80px; /* smaller spacing for mobile */
+  }
+}
+
+@media (min-width: 480px) {
+  .story {
+    margin-top: 60px; /* even smaller spacing on tiny screens */
   }
 }

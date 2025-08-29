@@ -88,7 +88,7 @@ export default function MemoryGame() {
           <p className="mt-2">Turns Taken: {turns}</p>
           <Link to="/wrapUp">
             <button className="mt-4 px-6 py-3 bg-green-500 text-white rounded-2xl shadow-lg hover:scale-105 transition font-semibold">
-              It's time to WrapUp
+              It's time to WrapUp?
             </button>
           </Link>
           {/* Play Again Button */}

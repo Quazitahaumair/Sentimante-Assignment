@@ -46,9 +46,9 @@ export default function Quiz() {
         <p className="mt-4 text-lg">
           Your Score: {score}/{questions.length}
         </p>
-        <Link to="/wrapup">
+        <Link to="/MoodExplorer">
           <button className="mt-6 px-6 py-3 bg-green-500 text-white rounded-2xl shadow-lg hover:scale-110 transition">
-            Finish 🚀
+            Let's move too MoodExplorer🚀
           </button>
         </Link>
       </div>
